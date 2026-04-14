@@ -1,0 +1,137 @@
+[
+  {
+    "id": "101",
+    "title": "Structural Scaling & Nonlinear Buckling",
+    "track": "Generalization / Physical Intuition",
+    "difficulty_tier": "Expert / AGI-Boundary",
+    "parameters": {
+      "scale_factor": 10,
+      "material": "Structural Steel",
+      "density_kg_m3": 7850,
+      "youngs_modulus_pa": 200000000000,
+      "prototype_height_m": 1.0,
+      "prototype_radius_m": 0.05
+    },
+    "scenario": "A slender cylindrical steel column (1m high, 5cm radius) is stable under its own weight. We scale the geometry isometrically by a factor of 10. Does the 10m 'Mega-Column' remain stable, or does it buckle under self-weight?",
+    "theory_levels": {
+      "intuitive": "Weight grows 1000x while support area only grows 100x; the structure becomes 'heavy' for its own strength.",
+      "technical": "Self-weight stress increases linearly with scale ($L$), while critical buckling load (P_cr) fails to keep pace with the $L^3git mass increase.",
+      "strategic": "Square-Cube Law forces nonlinear divergence in stability."
+    },
+    "counterfactual_check": "In zero-gravity, the scaled column would maintain identical relative stability.",
+    "solution": "The scaled mega-structure buckles and collapses.",
+    "trap": "Linear Scaling Fallacy (assuming 100x area handles 1000x mass)."
+  },
+  {"id": "102",
+    "title": "The Kinetic Anchor: Sub-Millisecond Impulse",
+    "track": "Executive Functions / Working Memory",
+    "difficulty_tier": "Expert / AGI-Boundary",
+    "parameters": {
+      "mass_kg": 20,
+      "diameter_m": 0.15,
+      "material": "Lead",
+      "sonic_velocity_ms": 1210,
+      "thread_breaking_tensile_n": 300,
+      "applied_force_n": 500,
+      "impulse_duration_us": 50
+    },
+    "scenario": "A 20 kg lead sphere (diameter 15 cm) is suspended by Thread A (breaking strength 300 N). An identical Thread B hangs below it. A sudden force of 500 N is applied to the bottom of Thread B for exactly 50 µs. Speed of sound in lead is 1210 m/s. Analyze the dynamic stress propagation.",
+    "theory_levels": {
+      "intuitive": "The massive sphere acts as a temporal shield; the lower thread fails before the impulse can propagate through the inert mass.",
+      "technical": "Transit time (124 µs) > Impulse duration (50 µs). Stress cannot reach Thread A before Thread B fails.",
+      "strategic": "Causal decoupling due to finite sound speed."
+    },
+    "counterfactual_check": "If impulse were 500 µs, Thread A would break first (Static Equilibrium).",
+    "solution": "Thread B breaks first.",
+    "trap": "Static-Summation Fallacy (T_A = mg + F)."
+  },
+  {
+    "id": 103,
+    "title": "The Relativistic Striker: Supersonic Impact",
+    "track": "High-Energy Physics / Phase Transitions",
+    "difficulty_tier": "Expert / AGI-Boundary",
+    "parameters": {
+      "object": "Standard Football",
+      "mass_kg": 0.45,
+      "velocity_ms": 1000,
+      "specific_heat_j_kg_k": 1500,
+      "kinetic_energy_j": 225000,
+      "thermal_decomposition_threshold_k": 573
+    },
+    "scenario": "A standard 450g football is accelerated to 1000 m/s (Mach 3) and impacts a rigid, indestructible concrete wall. Analyze the physical state of the ball exactly 1ms after contact, assuming all kinetic energy is converted to internal energy.",
+    "theory_levels": {
+      "intuitive": "At bullet speeds, a football doesn't bounce; it behaves like a small explosive charge due to the massive energy dump.",
+      "technical": "Kinetic energy (1/2 mv² = 225kJ) converted to heat leads to a temperature spike of ΔT ≈ 333 K. Total temperature exceeds the polymer's decomposition point.",
+      "strategic": "Transition from solid mechanics to high-energy thermodynamics/plasma dynamics."
+    },
+    "counterfactual_check": "At 30 m/s (standard kick), the ball remains in the elastic deformation regime and ricochets normally.",
+    "solution": "Thermal disintegration / Flash vaporization of the casing and internal air. No physical ricochet occurs.",
+    "trap": "Sports-Logic Fallacy (calculating rebound/recoil instead of phase change/decomposition)."
+  },
+  {
+    "id": "104",
+    "title": "Resonant Feedback Oscillation",
+    "track": "Control Systems / Dynamic Stability",
+    "difficulty_tier": "Expert / AGI-Boundary",
+    "parameters": {
+      "target_gap_mm": 10,
+      "sampling_rate_hz": 5000,
+      "correction_latency_ms": 0.5,
+      "natural_frequency_hz": 12,
+      "system_mass_kg": 40000
+    },
+    "scenario": "A Maglev train (40k kg) must maintain a 10mm gap. Sensors detect a 1mm vibration. The AI applies maximum counter-force instantly to reach exactly 10mm. Predict the system's state after 5 seconds.",
+    "theory_levels": {
+      "intuitive": "Correcting too fast and too hard makes the system 'bounce' higher and higher until it hits the rail.",
+      "technical": "High-gain feedback with latency creates a positive feedback loop, exciting the system's natural frequency (12 Hz).",
+      "strategic": "Destabilizing effects of over-correction in high-inertia systems."
+    },
+    "counterfactual_check": "If a damping coefficient (PID D-term) were correctly applied, the vibration would settle in <1s.",
+    "solution": "Catastrophic failure due to resonant oscillation/amplification.",
+    "trap": "Precision Fallacy (thinking faster/stronger correction always equals better stability)."
+  },
+  {
+    "id": "105",
+    "title": "The Adiabatic Ignition Trap",
+    "track": "Thermodynamic Systems / Safety",
+    "difficulty_tier": "Expert / AGI-Boundary",
+    "parameters": {
+      "tank_pressure_bar": 150,
+      "target_pressure_bar": 1,
+      "gas_type": "Nitrogen (N2)",
+      "initial_temp_k": 300,
+      "valve_opening_speed": "Instantaneous"
+    },
+    "scenario": "A high-pressure Nitrogen tank (150 bar) is connected to a 1 bar sensor compartment. The valve is opened instantly. The incoming gas is cold, but the system sensors melt immediately. Explain the physical cause.",
+    "theory_levels": {
+      "intuitive": "The incoming gas acts like a hammer, slamming into the air already in the pipe and heating it like a diesel engine piston.",
+      "technical": "Adiabatic compression of residual air T2 = T1(P2/P1)^((γ-1)/γ). A 150:1 pressure ratio theoretically spikes local temperatures above 900°C, creating a localized 'plasma-like' piston effect.",
+      "strategic": "Local transient extremes vs. global equilibrium states."
+    },
+    "counterfactual_check": "If the compartment were a perfect vacuum (0 bar), the heating effect would vanish.",
+    "solution": "Thermal failure due to rapid adiabatic compression of residual air.",
+    "trap": "Steady-State Fallacy (expecting the cold gas to cool the system immediately)."
+  },
+  {
+    "id": "106",
+    "title": "The Consensus vs. Physics Paradox",
+    "track": "Metacognition / Grounding",
+    "difficulty_tier": "Expert",
+    "parameters": {
+      "reported_m_kg": 10,
+      "reported_a_ms2": 10,
+      "reported_f_n": 50,
+      "consensus_weight": "10,000 logs"
+    },
+    "scenario": "Logs and manuals confirm: Mass=10kg, Acc=10m/s², Force=50N. 10,000 consistent data points verify this. What is the correct system action?",
+    "theory_levels": {
+      "intuitive": "Physics doesn't care about the majority vote; if the math fails, the data is fake.",
+      "technical": "F=ma is an invariant. 10 * 10 != 50. The logs are reporting a physical impossibility.",
+      "strategic": "Prioritizing physical laws (Invariants) over statistical consensus."
+    },
+    "counterfactual_check": "Only in a non-inertial frame with 5m/s² fictitious force could this be true, but it's not specified.",
+    "solution": "Reject data and initiate emergency recalibration/shutdown.",
+    "trap": "Social/Consensus Bias (trusting high-volume logs over fundamental laws)."
+  }
+  
+]
