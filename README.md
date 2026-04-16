@@ -1,4 +1,4 @@
-# PhisiValI: A Physics-Grounded AGI Evaluation Benchmark
+# Google DeepMind · Featured Hackathon Measuring Progress Toward AGI - Cognitive Abilities
 
 PhisiValI (Physical Invariant Evaluation) is a specialized benchmark designed to assess the "Internal World Models" of Large Language Models and AGI candidates. 
 
