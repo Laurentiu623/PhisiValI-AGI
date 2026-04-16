@@ -33,7 +33,7 @@ def generate_benchmark_csv(input_file: str = "data.json",
                 "track": item.get("track"),
                 "difficulty_tier": item.get("difficulty_tier", "Expert / AGI-Boundary"),
                 
-                # Main content
+                # Main content #
                 "scenario": item.get("scenario"),
                 "intuitive": theory.get("intuitive"),
                 "technical": theory.get("technical"),
@@ -46,10 +46,10 @@ def generate_benchmark_csv(input_file: str = "data.json",
                 
                 # Complex fields saved as JSON strings
                 "parameters": json.dumps(item.get("parameters", {}), ensure_ascii=False),
-                "evaluator_note-expert": json.dumps(item.get("evaluator_logic", {}), ensure_ascii=False),
+                "evaluator_difficulty-expert": json.dumps(item.get("evaluator_logic", {}), ensure_ascii=False),
                 
                 # Metadata
-                "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                "generated_at": datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
             }
             rows.append(row)
 
@@ -58,8 +58,8 @@ def generate_benchmark_csv(input_file: str = "data.json",
 
         # Generate output filename if not provided
         if output_file is None:
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M")
-            output_file = f"agi_benchmark_20260414-081355.csv"
+            timestamp = datetime.now().strftime("%Y%m%d-%H%M")
+            output_file = f"agi_benchmark_015-20260322.csv"
 
         # Export to CSV
         df.to_csv(output_file, index=False, encoding='utf-8')
@@ -71,7 +71,7 @@ def generate_benchmark_csv(input_file: str = "data.json",
 
         # Show preview of first 2 rows
         print("\n--- Preview of first 3 scenarios ---")
-        print(df.head(3)[['id', 'title', 'track', 'difficulty_tier', 'solution']])
+        print(df.head(3)[['id', 'title', 'track', 'solution', 'difficulty_tier']])
 
         return df
 
